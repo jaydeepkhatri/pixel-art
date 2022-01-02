@@ -1,0 +1,21 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+:root{
+    --black: #222;
+    --lightblack: #555;
+    --white: #F9F9F9;
+    --orange: rgb(255,147,24);
+    --orangegradient: linear-gradient(to right, rgb(255, 147, 24), rgb(250, 102, 3)); 
+}
+
+body {
+    /* background:-moz-radial-gradient(circle at 10% 30%, #12111a, #030207);
+    background:-webkit-radial-gradient(circle at 10% 30%, #12111a, #030207);
+    background:-o-radial-gradient(circle at 10% 30%, #12111a, #030207);
+    background:-ms-radial-gradient(circle at 10% 30%, #12111a, #030207);
+    background:radial-gradient(circle at 10% 30%, #12111a, #030207) no-repeat; */
+    font-family: 'Open Sans', sans-serif;
+}
