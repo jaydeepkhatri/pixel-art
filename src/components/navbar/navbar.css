@@ -4,12 +4,30 @@
     display: flex;
     align-items: center;
     justify-content: space-between;
+    box-shadow: 0 20px 40px rgba(0,0,0,0.1);
 }
 .navbar_title {
     font-family: 'Pushster', cursive;
     font-size: 3rem;
     color: var(--black);
     text-decoration: none;
+    position: relative;
+    
+}
+.navbar_title:hover::after {
+    width: 100%;
+    left: 0;
+}
+.navbar_title::after {
+    content: '';
+    position: absolute;
+    bottom: -8px;
+    left: 10px;
+    width: 100px;
+    height: 8px;
+    border-radius: 4px;
+    transition: 0.1s;
+    background: var(--orangegradient);
 }
 .navbar_items_container {
     display: flex;

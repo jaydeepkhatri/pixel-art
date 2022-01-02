@@ -1,12 +1,15 @@
 import React from 'react';
 import './feed.css';
 
+
 function Feed() {
     return(
         <main>
            <div className='boxes-grid'>
                {
-                   // Loop for Grid of 10*10
+                Array.from(Array(100).keys())?.map(x=>(
+                    <div className="gr"></div>
+                ))
                }
            </div>
         </main>

@@ -20,6 +20,7 @@
     font-size: 2rem;
     letter-spacing: 2px;
     position: relative;
+    display: inline-block;
 }
 .about_desc-heading::after {
     content: '';
@@ -29,7 +30,12 @@
     width: 80px;
     height: 8px;
     border-radius: 4px;
+    transition: 0.1s;
     background: linear-gradient(to right, rgb(255, 147, 24), rgb(250, 102, 3));
+}
+.about_desc-heading:hover::after {
+    width: 100%;
+    left: 0;
 }
 .about_desc-text {
     margin-top: 2rem;
