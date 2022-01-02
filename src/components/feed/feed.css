@@ -3,5 +3,26 @@ main {
     height: 2000px;
     margin: 0 auto;
     margin-top: 24px;
-    background: #abc;
+    padding: 2em;
+    /* background: #abc; */
+}
+.boxes-grid {
+    margin: 0 auto;
+}
+.boxes-grid .row {
+    display: grid;
+    grid-template-columns: repeat(32, 10px);
+    justify-content: center;
+}
+.boxes-grid .row div {
+    width: 10px;
+    height: 10px;
+    /* background: #acb; */
+    /* border: 1px solid #fff; */
+}
+.boxes-grid .row:nth-child(even) div:nth-child(odd) {
+    background: #def;
+}
+.boxes-grid .row div:nth-child(even){
+    background: #acb;
 }
