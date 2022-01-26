@@ -2,7 +2,6 @@ import React from 'react';
 import './aboutus.css';
 import aboutimg from './about_svg.svg';
 
-let creators = []
 
 function Aboutus() {
     const creators = [
@@ -24,7 +23,7 @@ function Aboutus() {
     ];
     return(
         <div className="about">
-            <div className="about_img"><img src={aboutimg} /></div>
+            <div className="about_img"><img src={aboutimg} alt="Pixel Art by JD" /></div>
             <div className="about_desc">
                 <h2 className="about_desc-heading">Pixel Art</h2>
                 <p className="about_desc-text">
@@ -36,8 +35,8 @@ Eveniet quasi eius doloremque nobis maiores odio aperiam tempore consequuntur re
                 <div className="about_desc-creator-container">
                     {
                         creators.map((creator) => (
-                            <a href={creator.url} title={creator.name} target="_blank">
-                                <img src={creator.img} className="" />
+                            <a href={creator.url} title={creator.name} target="_blank" rel="noopener noreferrer">
+                                <img src={creator.img} alt={creator.name} className="" />
                             </a>
                         ))
                     }

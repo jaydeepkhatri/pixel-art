@@ -1,11 +1,11 @@
-import React, {Component} from 'react';
-import {useState} from 'react';
+import React, {useState} from 'react';
+import { Link } from "react-router-dom";
 import { HiMenuAlt3 } from 'react-icons/hi';
 import './navbar.css'
 
 function Navbar () {
         const [menu, setMenu] = useState(0);
-        const [scroll, setScroll] = useState(0);
+        // const [scroll, setScroll] = useState(0);
 
 
 
@@ -16,7 +16,7 @@ function Navbar () {
             },
             {
                 name: "About us",
-                url: "/aboutus",
+                url: "aboutus",
             },
             {
                 name: "GitHub",
@@ -27,12 +27,12 @@ function Navbar () {
 
         return (
             
-            <div className='navbar'>
+            <nav className='navbar'>
                 <a href="/" className='navbar_title'>PixelArt</a>
                 <ul className='navbar_items_container'>
                     {
-                        menuitem.map((menu) => (
-                            <li className='navbar_item'>
+                        menuitem.map((menu, index) => (
+                            <li className='navbar_item' key={index}>
                                 <a href={menu.url} title={menu.name}>{menu.name}</a>
                             </li>
                         ))
@@ -54,8 +54,7 @@ function Navbar () {
                         : null}
                     
                 </div>
-                
-            </div>
+            </nav>
         )
 }
 
