@@ -9,16 +9,6 @@ function Aboutus() {
             name: "Jaydeep Khatri",
             url: "https://github.com/jaydeepkhatri",
             img: "https://avatars.githubusercontent.com/u/29619945"
-        },
-        {
-            name: "Jaydeep Khatri",
-            url: "https://github.com/jaydeepkhatri",
-            img: "https://avatars.githubusercontent.com/u/29619945"
-        },
-        {
-            name: "Jaydeep Khatri",
-            url: "https://github.com/jaydeepkhatri",
-            img: "https://avatars.githubusercontent.com/u/29619945"
         }
     ];
     return(
