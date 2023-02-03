@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useState, useRef } from 'react';
 import html2canvas from 'html2canvas';
 import './feed.css';
 
@@ -7,7 +7,6 @@ const downloadPic = () => {
         let lnk = document.createElement('a');
         lnk.download = "myimage";
         lnk.href = canvas.toDataURL("image/png;base64");
-        // Download image with Fake link
         lnk.click();
     });
 }
@@ -19,19 +18,39 @@ function Feed() {
     const [yPos, setyPos] = useState(0);
     const [CurrentColor, setCurrentColor] = useState("#F00");
     const [size, setSize] = useState(32);
+    const [isMouseDown, setIsMouseDown] = useState(false);
+
+    const currentColorRef = useRef(null);
+    const boxesGridRef = useRef(null);
+
+    useEffect(() => {
+        boxesGridRef.current.addEventListener("mousedown", function () {
+            setIsMouseDown(true);
+        });
+
+        boxesGridRef.current.addEventListener("mouseup", function () {
+            setIsMouseDown(false);
+          });
+    }, [isMouseDown]);
+
 
     for (let j = 0; j < size; j++) {
-        innerdivs.push(<div className={"pixel" + j} style={{width: 512/size, height: 512/size}} key={j} onMouseEnter={() => setxPos(j)}></div>);
+        innerdivs.push(<div className={"pixel" + j} style={{width: 512/size, height: 512/size}} key={j} onMouseOver={() => setxPos(j)}></div>);
     }
 
     for (let i = 0; i < size; i++) {
-        maindivs.push(<div className="row" id={"row" + i} style={{ gridTemplateColumns: `repeat(${size}, ${512/size}px)`}} key={i} onMouseEnter={() => setyPos(i)}>{innerdivs}</div>);
+        maindivs.push(<div className="row" id={"row" + i} style={{ gridTemplateColumns: `repeat(${size}, ${512/size}px)`}} key={i} onMouseOver={() => setyPos(i)}>{innerdivs}</div>);
     }
 
     useEffect(() => {
-        document.querySelector("#row" + yPos + " .pixel" + xPos).style.backgroundColor = CurrentColor;
-        document.querySelector(".currentcolor").style.backgroundColor = CurrentColor;
-    }, [xPos, yPos, CurrentColor]);
+        currentColorRef.current.style.backgroundColor = CurrentColor;
+    }, [CurrentColor]);
+
+    const handleColor = () => {
+        if(isMouseDown) {
+            document.querySelector("#row" + yPos + " .pixel" + xPos).style.backgroundColor = CurrentColor;
+        }
+    }
 
     const colors = [
         { name: "Light Red", colorhex: "#F78181" },
@@ -46,11 +65,11 @@ function Feed() {
     ];
     return (
         <main className="main">
-            <div className='boxes-grid'>
+            <div className='boxes-grid' ref={boxesGridRef} onMouseMove={() => handleColor()}>
                 {maindivs}
             </div>
             <div className="sidebar">
-                <div className="currentcolor"></div>
+                <div className="currentcolor" ref={currentColorRef}></div>
                 <div className="img-size-container">
                     <span>Board Pixels:</span> 
                     <input type="number" className="img-size" min="4" max="64" value={size} onInput={(e) => {setSize(e.target.value)}} />
