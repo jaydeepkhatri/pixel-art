@@ -6,16 +6,10 @@ function Navbar () {
         const [menu, setMenu] = useState(0);
         // const [scroll, setScroll] = useState(0);
 
-
-
         const menuitem = [
             {
                 name: "Home",
                 url: "/",
-            },
-            {
-                name: "About us",
-                url: "aboutus",
             },
             {
                 name: "GitHub",
