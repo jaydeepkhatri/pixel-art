@@ -28,7 +28,6 @@ function Feed() {
         maindivs.push(<div className="row" id={"row" + i} style={{ gridTemplateColumns: `repeat(${size}, ${512/size}px)`}} key={i} onMouseEnter={() => setyPos(i)}>{innerdivs}</div>);
     }
 
-
     useEffect(() => {
         document.querySelector("#row" + yPos + " .pixel" + xPos).style.backgroundColor = CurrentColor;
         document.querySelector(".currentcolor").style.backgroundColor = CurrentColor;
@@ -53,6 +52,7 @@ function Feed() {
             <div className="sidebar">
                 <div className="currentcolor"></div>
                 <div className="img-size-container">
+                    <span>Board Pixels:</span> 
                     <input type="number" className="img-size" value={size} onInput={(e) => {setSize(e.target.value)}} />
                 </div>
                 <div className="colors">
