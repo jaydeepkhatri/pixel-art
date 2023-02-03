@@ -53,7 +53,7 @@ function Feed() {
                 <div className="currentcolor"></div>
                 <div className="img-size-container">
                     <span>Board Pixels:</span> 
-                    <input type="number" className="img-size" value={size} onInput={(e) => {setSize(e.target.value)}} />
+                    <input type="number" className="img-size" min="4" max="64" value={size} onInput={(e) => {setSize(e.target.value)}} />
                 </div>
                 <div className="colors">
                     {
